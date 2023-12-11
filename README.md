@@ -34,17 +34,26 @@ Slave: http://13.59.117.29:8080/fabflix/
 
 - # Connection Pooling
     - #### Include the filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
+
+Configuration file: WebContent/META-INF/context.xml
+
+Servlet file (All located in src/): AddGenre.java, AddMovie.java, AddStar.java, Autocomplete.java, BrowseServlet.java, CartItemServlet.java,
+EmployeeLoging.java, LoginServlet.java, MovieListServlet.java, MoviesServlet.java, PaymentServlet.java, SingleMovieServlet.java, SingleStarServlet.java
     
     - #### Explain how Connection Pooling is utilized in the Fabflix code.
 Connection Pooling is defined in the context.xml for each resource. Whenever a connection is not in use, it sits idle until it is reused again in a servlet or if max idle connection is above 30. The pool of connections will never exceed 100 for each resource. An advantage of reusing connections is that a user would not have to wait for JDBC to create another connection to the database, reducing Servet Time. 
       
-    
     - #### Explain how Connection Pooling works with two backend SQL.
 There are 2 resources provided in the context.xml. Each backend server has access to its own connection pool for each resource defined. This means that the connections aren't shared between the two backend servers. 
     
 
 - # Master/Slave
     - #### Include the filename/path of all code/configuration files in GitHub of routing queries to Master/Slave SQL.
+
+Configuration file: WebContent/META-INF/context.xml
+
+Servlet file (All located in src/): AddGenre.java, AddMovie.java, AddStar.java, Autocomplete.java, BrowseServlet.java, CartItemServlet.java,
+EmployeeLoging.java, LoginServlet.java, MovieListServlet.java, MoviesServlet.java, PaymentServlet.java, SingleMovieServlet.java, SingleStarServlet.java
 
     - #### How read/write requests were routed to Master/Slave SQL?
 Master instance is routed to its own Master database (localhost)
