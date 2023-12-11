@@ -22,11 +22,12 @@ public class ProcessTimeLog {
 
                 }
                 myReader.close();
+
             }
 
             System.out.println("Samples: " + count);
-            System.out.println("Servlet Time AVG: " + (stSum/count));
-            System.out.println("JDBC Time AVG: " + (dbSum/count));
+            System.out.println("Servlet Time AVG: " + (stSum/count) + " ns");
+            System.out.println("JDBC Time AVG: " + (dbSum/count) + " ns");
 
         } catch (FileNotFoundException e) {
             System.out.println("An error occurred.");
