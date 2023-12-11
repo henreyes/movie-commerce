@@ -1,5 +1,13 @@
 # 2023-fall-cs122b-team-winner
 
+Video Link: https://youtu.be/vBw9oilsPaM
+
+AWS LINKS
+
+Single (with https): https://3.22.101.185:8443/fabflix/login.html
+Load Balancer (Port 80): http://18.219.176.42/fabflix/
+Master: http://18.189.32.191:8080/fabflix/
+Slave: http://13.59.117.29:8080/fabflix/
 
 - # General
     - #### Team#: Team Winner
