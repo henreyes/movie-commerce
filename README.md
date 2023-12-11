@@ -20,8 +20,9 @@ Slave: http://13.59.117.29:8080/fabflix/
 
     - #### Instruction of deployment:
   
-  -mvn package
-  -sudo cp ./target/*.war /var/lib/tomcat10/webapps/
+      mvn package
+  
+      sudo cp ./target/*.war /var/lib/tomcat10/webapps/
   
   
 
@@ -39,18 +40,19 @@ Connection Pooling is defined in the context.xml for each resource. Whenever a c
       
     
     - #### Explain how Connection Pooling works with two backend SQL.
-          There are 2 resources provided in the context.xml. Each backend server has access to its own connection pool for each resource defined. This means that the connections aren't shared between the two backend servers. 
+There are 2 resources provided in the context.xml. Each backend server has access to its own connection pool for each resource defined. This means that the connections aren't shared between the two backend servers. 
     
 
 - # Master/Slave
     - #### Include the filename/path of all code/configuration files in GitHub of routing queries to Master/Slave SQL.
 
     - #### How read/write requests were routed to Master/Slave SQL?
-          Master instance is routed to its own Master database (localhost)
-          Slave instance its routed to the Master database for any servlets requiring write and any servlets that only read is routed to the Slave (localhost) database.
+Master instance is routed to its own Master database (localhost)
+
+Slave instance is routed to the Master database for any servlets requiring write and any servlets that only read is routed to the Slave (localhost) database.
  
       
-          Master is not routed to the Slave database for reads because there is a significant amount of read operations compared to write and to help balance out the load on the SQL servers, we made Master only route to its own Master database for reads and writes.
+Master is not routed to the Slave database for reads because there is a significant amount of read operations compared to write and to help balance out the load on the SQL servers, we made Master only route to its own Master database for reads and writes.
     
 
 - # JMeter TS/TJ Time Logs
