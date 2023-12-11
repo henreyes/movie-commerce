@@ -1,6 +1,5 @@
 # 2023-fall-cs122b-team-winner
 
-Video Link: https://youtu.be/vBw9oilsPaM
 
 AWS LINKS
 
@@ -17,7 +16,7 @@ Slave: http://13.59.117.29:8080/fabflix/
     
     - #### Names: Brian L, Henry R
     
-    - #### Project 5 Video Demo Link:
+    - #### Project 5 Video Demo Link: https://youtu.be/vBw9oilsPaM
 
     - #### Instruction of deployment:
       
