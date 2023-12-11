@@ -52,13 +52,13 @@
 | Case 1: HTTP/1 thread                          | ![](img/http_one_thread.png)   | 151                         | 2.11                                 | 1.93                         | With only one thread being tested, along with connection pooling, this test is to be expected to take the shortest amount of time in terms of query and servlet time.           |
 | Case 2: HTTP/10 threads                        | ![](img/http_ten_threads.png)   | 159                         | 2.21                                  |  2.01                       | These results are similar to a single thread, just slower, which is to be logically expected.            |
 | Case 3: HTTPS/10 threads                       | ![](img/https_ten_thread.png)  | 241                         | 2.19                                  | 1.80                       | With https, the higher query time is correlated with the overhead of the encryption/decryption of data. With 10 threads, the server deals with handling concurrent TLS handshakes.        |
-| Case 4: HTTP/10 threads/No connection pooling  | ![](img/http_no_pooling_ten_thread.png)   | 169                         | 4.45                                  | 4.29                       | Due to the lack of connection pool/cache, it is to be expected that this test of fablix takes the longest in terms of JDBC and servlet tiems.        |
+| Case 4: HTTP/10 threads/No connection pooling  | ![](img/http_no_pooling_ten_thread.png)   | 169                         | 4.45                                  | 4.29                       | Due to the lack of connection pool/cache, it is to be expected that this test of fablix takes the longest in terms of JDBC and servlet times.        |
 
 | **Scaled Version Test Plan**                   | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
 | Case 1: HTTP/1 thread                          | ![](img/ScaleCase1.png)   | 171                         | 2.45                                  | 2.17                        | ??           |
 | Case 2: HTTP/10 threads                        | ![](img/ScaleCase2.png)   | 166                         | 3.80                                  | 3.57                        | ??           |
-| Case 3: HTTP/10 threads/No connection pooling  | ![](img/ScaleCase3.png)   | 164                         | 6.10                                  | 2.60                        | ??           |
+| Case 3: HTTP/10 threads/No connection pooling  | ![](img/ScaleCase3.png)   | 164                         | 6.10                                  | 2.60                        | Due to the lack of connection pool/cache, it is to be expected that this test of fablix takes the longest in terms of JDBC and servlet times. The black points on the graph further indicate the strain on the server.           |
 
 
 
