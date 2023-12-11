@@ -25,10 +25,10 @@ Slave: http://13.59.117.29:8080/fabflix/
       sudo cp ./target/*.war /var/lib/tomcat10/webapps/
   
   
-
     - #### Collaborations and Work Distribution: 
 
         Brian: Task 1, 2, 3, Jmeter for Master/Slave
+      
         Henry: Task 4.1, 4.2, Jmeter for Single Instance
 
 
@@ -44,7 +44,7 @@ EmployeeLoging.java, LoginServlet.java, MovieListServlet.java, MoviesServlet.jav
 Connection Pooling is defined in the context.xml for each resource. Whenever a connection is not in use, it sits idle until it is reused again in a servlet or if max idle connection is above 30. The pool of connections will never exceed 100 for each resource. An advantage of reusing connections is that a user would not have to wait for JDBC to create another connection to the database, reducing Servet Time. 
       
     - #### Explain how Connection Pooling works with two backend SQL.
-There are 2 resources provided in the context.xml. Each backend server has access to its own connection pool for each resource defined. This means that the connections aren't shared between the two backend servers. 
+There are 2 resources provided in the context.xml. Each backend server has access to its own connection pool for each resource defined. This means that the connections aren't shared between the two backend servers. Each backend will keep reusing its own connections instead of making one each time. 
     
 
 - # Master/Slave
@@ -52,8 +52,9 @@ There are 2 resources provided in the context.xml. Each backend server has acces
 
 Configuration file: WebContent/META-INF/context.xml
 
-Servlet file (All located in src/): AddGenre.java, AddMovie.java, AddStar.java, Autocomplete.java, BrowseServlet.java, CartItemServlet.java,
-EmployeeLoging.java, LoginServlet.java, MovieListServlet.java, MoviesServlet.java, PaymentServlet.java, SingleMovieServlet.java, SingleStarServlet.java
+Servlet file Master SQL (All located in src/): AddGenre.java, AddMovie.java, AddStar.java, CartItemServlet.java, EmployeeLoging.java, LoginServlet.java, PaymentServlet.java
+
+Servlet file Master/Slave/Localhost SQL (All located in src/): Autocomplete.java, BrowseServlet.java, MovieListServlet.java, MoviesServlet.java, PaymentServlet.java, SingleMovieServlet.java, SingleStarServlet.java
 
     - #### How read/write requests were routed to Master/Slave SQL?
 Master instance is routed to its own Master database (localhost)
@@ -61,7 +62,7 @@ Master instance is routed to its own Master database (localhost)
 Slave instance is routed to the Master database for any servlets requiring write and any servlets that only read is routed to the Slave (localhost) database.
  
       
-Master is not routed to the Slave database for reads because there is a significant amount of read operations compared to write and to help balance out the load on the SQL servers, we made Master only route to its own Master database for reads and writes.
+Master is not routed to the Slave database for reads because there is a significant amount of read operations compared to write and to help balance out the load on the SQL servers, we made Master only route to its own Master database for reads and writes. 
     
 
 - # JMeter TS/TJ Time Logs
@@ -89,9 +90,7 @@ Master is not routed to the Slave database for reads because there is a signific
 
 
 
-Fabflix URL: [[https://13.58.62.187:8443/fabflix/index.html](https://13.59.221.90:8443/fabflix/)](https://18.219.176.42:8443/fabflix/)
 
-Video URL: https://youtu.be/WjDXl1xrIYE
 
 
 ## Project 4
