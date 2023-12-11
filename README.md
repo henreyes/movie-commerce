@@ -31,22 +31,22 @@ Slave: http://13.59.117.29:8080/fabflix/
     - #### Include the filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
     
     - #### Explain how Connection Pooling is utilized in the Fabflix code.
-    -     Connection Pooling is defined in the context.xml for each resource. Whenever a connection is not in use, it sits idle until it is reused again in a servlet or if max idle connection is above 30. The pool of connections will never exceed 100 for each resource. An advantage of reusing connections is that a user would not have to wait for JDBC to create another connection to the database, reducing Servet Time. 
-    -     
+          Connection Pooling is defined in the context.xml for each resource. Whenever a connection is not in use, it sits idle until it is reused again in a servlet or if max idle connection is above 30. The pool of connections will never exceed 100 for each resource. An advantage of reusing connections is that a user would not have to wait for JDBC to create another connection to the database, reducing Servet Time. 
+      
     
     - #### Explain how Connection Pooling works with two backend SQL.
-    -     There are 2 resources provided in the context.xml. Each backend server has access to its own connection pool for each resource defined. This means that the connections aren't shared between the two backend servers. 
+          There are 2 resources provided in the context.xml. Each backend server has access to its own connection pool for each resource defined. This means that the connections aren't shared between the two backend servers. 
     
 
 - # Master/Slave
     - #### Include the filename/path of all code/configuration files in GitHub of routing queries to Master/Slave SQL.
 
     - #### How read/write requests were routed to Master/Slave SQL?
-    -     Master instance is routed to its own Master database (localhost)
-    -     Slave instance its routed to the Master database for any servlets requiring write and any servlets that only read is routed to the Slave (localhost) database.
+          Master instance is routed to its own Master database (localhost)
+          Slave instance its routed to the Master database for any servlets requiring write and any servlets that only read is routed to the Slave (localhost) database.
  
       
-    -     Master is not routed to the Slave database for reads because there is a significant amount of read operations compared to write and to help balance out the load on the SQL servers, we made Master only route to its own Master database for reads and writes.
+          Master is not routed to the Slave database for reads because there is a significant amount of read operations compared to write and to help balance out the load on the SQL servers, we made Master only route to its own Master database for reads and writes.
     
 
 - # JMeter TS/TJ Time Logs
@@ -56,6 +56,8 @@ Slave: http://13.59.117.29:8080/fabflix/
 
 
 - # JMeter TS/TJ Time Measurement Report
+
+  Note: Click on the image to redirect to the path
 
 | **Single-instance Version Test Plan**          | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
