@@ -89,7 +89,7 @@ Master is not routed to the Slave database for reads because there is a signific
 | Case 3: HTTP/10 threads/No connection pooling  | ![](img/ScaleCase3.png)   | 164                         | 6.10                                  | 2.60                        | Due to the lack of connection pool/cache, it is to be expected that this test of fablix takes the longest in terms of JDBC and servlet times. The black points on the graph further indicate the strain on the server.           |
 
 
-Overall Analysis: Times were very quick due to the one query executed. The query that was being executed only had a full table scan of full-text table (inverted index). This help in creating small averages since some queries returned zero results.  
+Overall Analysis: Times were very quick due to the one query executed for each search. The query that was being executed only had one full table scan, which was of the full-text table (inverted index). This helps in creating small averages since some queries returned zero results.  
 
 
 
