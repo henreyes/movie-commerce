@@ -19,7 +19,11 @@ Slave: http://13.59.117.29:8080/fabflix/
     - #### Project 5 Video Demo Link: https://youtu.be/vBw9oilsPaM
 
     - #### Instruction of deployment:
-      
+  
+  -mvn package
+  -sudo cp ./target/*.war /var/lib/tomcat10/webapps/
+  
+  
 
     - #### Collaborations and Work Distribution: 
 
@@ -31,7 +35,7 @@ Slave: http://13.59.117.29:8080/fabflix/
     - #### Include the filename/path of all code/configuration files in GitHub of using JDBC Connection Pooling.
     
     - #### Explain how Connection Pooling is utilized in the Fabflix code.
-          Connection Pooling is defined in the context.xml for each resource. Whenever a connection is not in use, it sits idle until it is reused again in a servlet or if max idle connection is above 30. The pool of connections will never exceed 100 for each resource. An advantage of reusing connections is that a user would not have to wait for JDBC to create another connection to the database, reducing Servet Time. 
+Connection Pooling is defined in the context.xml for each resource. Whenever a connection is not in use, it sits idle until it is reused again in a servlet or if max idle connection is above 30. The pool of connections will never exceed 100 for each resource. An advantage of reusing connections is that a user would not have to wait for JDBC to create another connection to the database, reducing Servet Time. 
       
     
     - #### Explain how Connection Pooling works with two backend SQL.
