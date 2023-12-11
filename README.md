@@ -51,7 +51,7 @@
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
 | Case 1: HTTP/1 thread                          | ![](path to image in img/)   | 170                         | 2.10                                 | 1.93                         | ??           |
 | Case 2: HTTP/10 threads                        | ![](path to image in img/)   | 159                         | 2.21                                  |  2.01                       | ??           |
-| Case 3: HTTPS/10 threads                       | ![](<img width="1576" alt="https_ten_thread" src="https://github.com/uci-jherold2-fall23-cs122b/2023-fall-cs122b-team-winner/assets/93295604/4adbd72a-c126-4166-ad56-905a27213320">
+| Case 3: HTTPS/10 threads                       | <img width="1576" alt="https_ten_thread" src="https://github.com/uci-jherold2-fall23-cs122b/2023-fall-cs122b-team-winner/assets/93295604/4adbd72a-c126-4166-ad56-905a27213320">
 to image in img/)   | 241                         | 2.19                                  | 1.80                       | ??           |
 | Case 4: HTTP/10 threads/No connection pooling  | ![](path to image in img/)   | 169                         | 4.45                                  | 4.29                       | ??           |
 
