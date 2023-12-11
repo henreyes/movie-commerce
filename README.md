@@ -84,11 +84,12 @@ Master is not routed to the Slave database for reads because there is a signific
 
 | **Scaled Version Test Plan**                   | **Graph Results Screenshot** | **Average Query Time(ms)** | **Average Search Servlet Time(ms)** | **Average JDBC Time(ms)** | **Analysis** |
 |------------------------------------------------|------------------------------|----------------------------|-------------------------------------|---------------------------|--------------|
-| Case 1: HTTP/1 thread                          | ![](img/ScaleCase1.png)   | 171                         | 2.45                                  | 2.17                        | ??           |
-| Case 2: HTTP/10 threads                        | ![](img/ScaleCase2.png)   | 166                         | 3.80                                  | 3.57                        | ??           |
+| Case 1: HTTP/1 thread                          | ![](img/ScaleCase1.png)   | 171                         | 2.45                                  | 2.17                        | Similar results to Case 1 of single isntance. This is because, after logging in, users will get redirected to one instance, master or slave.          |
+| Case 2: HTTP/10 threads                        | ![](img/ScaleCase2.png)   | 166                         | 3.80                                  | 3.57                        | The time is approximately the same as Case 3. This is probably due to network delays. TS is slower than in Case 1 most likely due to the high cpu utilization of our small ec2 instance.            |
 | Case 3: HTTP/10 threads/No connection pooling  | ![](img/ScaleCase3.png)   | 164                         | 6.10                                  | 2.60                        | Due to the lack of connection pool/cache, it is to be expected that this test of fablix takes the longest in terms of JDBC and servlet times. The black points on the graph further indicate the strain on the server.           |
 
 
+Overall Analysis: Times were very quick due to the one query executed. The query that was being executed only had a full table scan of full-text table (inverted index). This help in creating small averages since some queries returned zero results.  
 
 
 
